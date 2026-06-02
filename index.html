@@ -64,6 +64,7 @@
   <script>
     const SVG_NS = "http://www.w3.org/2000/svg";
     const WALK_M_PER_MIN = 1609.344 / 20;   // 80.467 m/min
+    const TOTAL_REPORTS = 268106;
 
     // Same cumulative data as access_curve.html
     const distances = [0, 76.2, 152.4, 304.8, 402.336, 804.672, 1609.344, 3218.688];
@@ -186,11 +187,11 @@
           fill: BUCKET_COLORS[bi], style: "cursor:default"
         });
         rect.addEventListener("mousemove", e => {
+          const count = Math.round(pct / 100 * TOTAL_REPORTS).toLocaleString();
           tip.innerHTML =
-            `<span style="color:${BUCKET_COLORS[bi]};font-weight:700;` +
-            `text-shadow:0 0 6px rgba(255,255,255,0.3)">${BUCKET_LABELS[bi]}</span>` +
-            `<br><span style="font-size:14px;font-weight:700;color:#fff">${pct}%</span>` +
-            `<span style="color:rgba(255,255,255,0.45);font-size:10px">&nbsp;of ${u} reports</span>`;
+            `<span style="color:#B6C688;font-weight:700">${BUCKET_LABELS[bi]} to ${u}</span>` +
+            `<br><span style="font-size:14px;font-weight:700;color:#fff">${count}</span>` +
+            `<span style="color:rgba(255,255,255,0.45);font-size:10px">&nbsp;reports</span>`;
           tip.style.left    = e.clientX + "px";
           tip.style.top     = e.clientY + "px";
           tip.style.opacity = "1";
