@@ -200,10 +200,10 @@
         chart.appendChild(rect);
 
         // Percentage label inside segment (skip if too thin)
-        if (rectH >= 18) {
+        if (rectH >= 12) {
           chart.appendChild(el("text", {
             x: barX + barW / 2, y: rectY + rectH / 2,
-            fill: BUCKET_TEXT[bi], "font-size": 12, "font-weight": 500,
+            fill: BUCKET_TEXT[bi], "font-size": 10, "font-weight": 500,
             "text-anchor": "middle", "dominant-baseline": "middle"
           }, pct + "%"));
         }
